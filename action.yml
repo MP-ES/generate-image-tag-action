@@ -24,9 +24,8 @@ runs:
       env:
         INPUT_REGISTRY: ${{ inputs.registry }}
         INPUT_IMAGE: ${{ inputs.image }}
-    - id: commit_hash
-      run: echo "::set-output name=value::$( git rev-parse --short HEAD )"
-      shell: bash
     - id: tag
-      run: echo "::set-output name=value::${{ env.registry }}/${{ github.event.repository.name }}/${{ env.image }}:${{ steps.commit_hash.outputs.value }}"
+      run: echo "::set-output name=value::${{ env.registry }}/${{ github.event.repository.name }}/${{ env.image }}:${{ env.SHA8 }}"
       shell: bash
+      env:
+        SHA8: ${GITHUB_SHA::8}
