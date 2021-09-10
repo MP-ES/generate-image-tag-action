@@ -25,7 +25,7 @@ runs:
         INPUT_REGISTRY: ${{ inputs.registry }}
         INPUT_IMAGE: ${{ inputs.image }}
     - id: commit_hash
-      run: echo "::set-output name=value::$( git rev-parse --short HEAD )"
+      run: echo "::set-output name=value::$( echo ${GITHUB_SHA:0:7} )"
       shell: bash
     - id: tag
       run: echo "::set-output name=value::${{ env.registry }}/${{ github.event.repository.name }}/${{ env.image }}:${{ steps.commit_hash.outputs.value }}"
