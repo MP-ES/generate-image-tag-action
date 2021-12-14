@@ -1,11 +1,15 @@
-# generate-image-tag-action
+# Discontinued
+
+This project was a workaround. Please use <https://github.com/MP-ES/build-push-action> instead.
+
+## generate-image-tag-action
 
 Workaround composite action to obtain an image tag in an expected format of [on-premises k8s-deploy](https://github.com/MP-ES/k8s-deploy) while <https://github.com/actions/runner/issues/646> is not ready.
 
 [![License](https://img.shields.io/github/license/MP-ES/generate-image-tag-action.svg)](LICENSE)
 [![Integration](https://github.com/MP-ES/generate-image-tag-action/workflows/Integration/badge.svg)](https://github.com/MP-ES/generate-image-tag-action/actions?query=workflow%3AIntegration)
 
-## Usage
+### Usage
 
 ```yaml
 - name: Generate image tag
@@ -28,7 +32,7 @@ Then, you can do:
     tags: "${{ steps.image_tag.outputs.tag }}"
 ```
 
-## Outputs
+### Outputs
 
 Following outputs are available:
 
